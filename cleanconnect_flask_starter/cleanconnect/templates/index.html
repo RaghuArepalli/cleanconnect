@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanConnect | Cleaner Places. Better Tomorrow.</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="brand">
+        <div class="brand-mark">🌱</div>
+        <div>
+            <div class="brand-name">Clean<span>Connect</span></div>
+            <div class="tagline">Clean Places • Better Tomorrow</div>
+        </div>
+    </div>
+
+    <nav>
+        <a class="active" href="#home">⌂ Home</a>
+        <a href="#events">▣ Find Cleanups</a>
+        <a href="#report">⚑ Report a Place</a>
+        <a href="#organize">♣ Organize</a>
+    </nav>
+
+    <a class="nav-cta" href="#get-involved">♥ Get Involved</a>
+</header>
+
+<main>
+<section id="home" class="hero">
+    <div class="hero-content">
+        <div class="eyebrow">🌍 A community-powered movement</div>
+        <h1>Make your city cleaner,<br><span>one place at a time.</span></h1>
+        <p>
+            Find cleanup activities near you, report places that need help,
+            and join people who are already taking action.
+            Together, we can build a cleaner, healthier and greener India.
+        </p>
+
+        <div class="hero-actions">
+            <a class="btn primary" href="#events">⌕ Find Cleanups <small>Join activities near you</small></a>
+            <a class="btn light" href="#report">⚑ Report Dirty Location <small>Help identify problem areas</small></a>
+            <a class="btn light" href="#organize">♣ Organize a Cleanup <small>Create and lead an activity</small></a>
+        </div>
+    </div>
+
+    <div class="hero-visual">
+        <div class="photo-card">
+            <div class="people-illustration">
+                <div class="person p1">🧑🏽‍🌾</div>
+                <div class="person p2">👩🏽‍🔧</div>
+                <div class="person p3">🧑🏽‍🌱</div>
+                <div class="bag">🛍️</div>
+            </div>
+            <div class="hero-message">Cleaner Cities<br><span>Happier People</span></div>
+        </div>
+    </div>
+</section>
+
+<section class="how">
+    <div class="section-heading">
+        <h2>How <span>CleanConnect</span> Works</h2>
+        <p>Simple steps. A cleaner tomorrow.</p>
+    </div>
+
+    <div class="steps">
+        <div class="step">
+            <div class="step-icon green">⌕</div>
+            <div class="step-number">1. Find</div>
+            <p>Discover cleanup activities near you.</p>
+        </div>
+        <div class="arrow">→</div>
+        <div class="step">
+            <div class="step-icon blue">⚑</div>
+            <div class="step-number">2. Report</div>
+            <p>Report places that need cleaning.</p>
+        </div>
+        <div class="arrow">→</div>
+        <div class="step">
+            <div class="step-icon orange">♣</div>
+            <div class="step-number">3. Join</div>
+            <p>Volunteer and be part of the solution.</p>
+        </div>
+        <div class="arrow">→</div>
+        <div class="step">
+            <div class="step-icon green">🌿</div>
+            <div class="step-number">4. Create Impact</div>
+            <p>See the change and inspire others.</p>
+        </div>
+    </div>
+</section>
+
+<section id="events" class="events-section">
+    <div class="section-title-row">
+        <div>
+            <h2>Upcoming <span>Cleanup Activities</span></h2>
+            <p>Join an activity and make a real difference.</p>
+        </div>
+        <a href="#">View All Activities →</a>
+    </div>
+
+    <div class="event-grid">
+        {% for event in events %}
+        <article class="event-card">
+            <div class="event-image">
+                <img src="{{ url_for('static', filename='images/' + event.image) }}" alt="Cleanup activity">
+                <span>{{ event.date }}</span>
+            </div>
+            <div class="event-body">
+                <h3>{{ event.title }}</h3>
+                <p>📍 {{ event.location }}</p>
+                <p>▣ {{ event.date }}</p>
+                <p>◷ {{ event.time }}</p>
+                <p>♣ {{ event.volunteers }} volunteers</p>
+                <button onclick="joinCleanup('{{ event.title }}')">Join Cleanup →</button>
+            </div>
+        </article>
+        {% endfor %}
+
+        <aside class="quote-card">
+            <div class="leaf">🌱</div>
+            <blockquote>
+                “The Earth does not<br>
+                belong to us,<br>
+                we belong to it.”
+            </blockquote>
+            <cite>— Indian Proverb</cite>
+            <div class="trees">🌳 🌲 🌳</div>
+        </aside>
+    </div>
+</section>
+
+<section class="impact">
+    <div><strong>500+</strong><span>Volunteers</span></div>
+    <div><strong>120+</strong><span>Locations Reported</span></div>
+    <div><strong>80+</strong><span>Cleanups Completed</span></div>
+    <div><strong>15,000+ kg</strong><span>Waste Collected</span></div>
+    <div><strong>♥</strong><span>Cleaner & Greener India</span></div>
+</section>
+
+<section id="report" class="report-section">
+    <div>
+        <div class="eyebrow">SEE A PROBLEM? START THE CHANGE.</div>
+        <h2>Know a place that needs cleaning?</h2>
+        <p>Don't just walk past it. Report the location and help the community take action.</p>
+    </div>
+    <a class="btn white" href="#">Report Dirty Location →</a>
+</section>
+
+<section id="organize" class="organize">
+    <div class="section-heading">
+        <h2>Ready to <span>Take Action?</span></h2>
+        <p>Anyone can help. Find an activity or bring your community together.</p>
+    </div>
+    <div class="organize-cards">
+        <div><span>🙋</span><h3>Become a Volunteer</h3><p>Join cleanup activities happening around you.</p><a href="#events">Find an Activity →</a></div>
+        <div><span>📣</span><h3>Organize a Cleanup</h3><p>Have a group or community? Start your own activity.</p><a href="#">Create Cleanup →</a></div>
+        <div><span>📍</span><h3>Report a Location</h3><p>Help us identify places that need attention.</p><a href="#report">Report Now →</a></div>
+    </div>
+</section>
+
+<section id="get-involved" class="final-cta">
+    <div class="final-leaves">🌿</div>
+    <h2>Small Actions. <span>Big Change.</span></h2>
+    <p>Join the movement for a cleaner, healthier and greener India.</p>
+    <a class="btn white" href="#events">Get Involved Today →</a>
+</section>
+</main>
+
+<footer>
+    <div class="footer-brand">🌱 Clean<span>Connect</span></div>
+    <p>Connecting people who want to help with people who are already taking action.</p>
+    <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#events">Find Cleanups</a>
+        <a href="#report">Report</a>
+        <a href="#organize">Organize</a>
+    </div>
+    <small>© 2026 CleanConnect. Built for cleaner communities.</small>
+</footer>
+
+<script>
+function joinCleanup(title) {
+    alert("Thank you! You selected: " + title + "\n\nThe volunteer registration feature will be connected to the Python backend next.");
+}
+</script>
+
+</body>
+</html>

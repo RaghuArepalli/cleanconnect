@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420">
+<defs>
+ <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="#6ea8d5"/><stop offset="1" stop-color="#1e6d55"/>
+ </linearGradient>
+</defs>
+<rect width="800" height="420" fill="url(#g)"/>
+<circle cx="680" cy="100" r="70" fill="#ffffff22"/>
+<circle cx="110" cy="330" r="110" fill="#ffffff18"/>
+<path d="M0 330 Q180 245 360 325 T800 300 V420 H0Z" fill="#174f35" opacity=".55"/>
+<g font-family="Arial" text-anchor="middle" fill="white">
+ <text x="400" y="175" font-size="62">🧹</text>
+ <text x="400" y="245" font-size="30" font-weight="700">Durgam Cheruvu</text>
+ <text x="400" y="285" font-size="20">Community cleanup</text>
+</g>
+</svg>
